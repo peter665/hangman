@@ -73,6 +73,7 @@ class Hangman
       obj = self.to_json
       print "Name of your save: "
       name = gets.chomp
+      Dir.mkdir('saves') unless File.exists?('saves')   #Makes the 'saves' directory unless its not already there
       File.open('saves/' + name + '.txt', 'w') do |f|
         f.write(obj)
       end
